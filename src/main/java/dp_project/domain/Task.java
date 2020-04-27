@@ -1,4 +1,4 @@
-package com.codurance.training.tasks;
+package dp_project.domain;
 
 public final class Task {
     private final long id;
@@ -21,6 +21,12 @@ public final class Task {
 
     public boolean isDone() {
         return done;
+    }
+    public void checkDone(){
+        this.done = true;
+    }
+    public void uncheckDone(){
+        this.done = false;
     }
 
     public void setDone(boolean done) {

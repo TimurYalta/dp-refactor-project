@@ -1,4 +1,6 @@
-package com.codurance.training.tasks;
+package dp_project;
+
+import dp_project.domain.Task;
 
 import java.io.BufferedReader;
 import java.io.IOException;
