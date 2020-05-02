@@ -22,13 +22,9 @@ public class TaskListInMemoryStorage implements TaskListStorageInterface {
 
     @Override
     public void addTask(String projName, Task task) {
-        System.out.println("HAHA HERE BP&A");
         for(Project p: projects){
 
-            System.out.println("HAHA HERE afasf");
             if(p.getName().equals(projName)){
-
-                System.out.println("HAHA HERE Bas");
                 p.addTask(task);
             }
         }
