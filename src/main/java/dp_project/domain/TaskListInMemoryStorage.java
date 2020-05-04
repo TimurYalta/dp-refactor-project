@@ -55,4 +55,11 @@ public class TaskListInMemoryStorage implements TaskListStorageInterface {
     public void deleteProject(String name) {
         projects.removeIf(p -> p.getName().equals(name));
     }
+
+    @Override
+    public void addDeadline(long id, String deadline) {
+        for(Project p:projects){
+            p.setTaskDeadline(id, deadline);
+        }
+    }
 }

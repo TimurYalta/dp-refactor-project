@@ -6,10 +6,10 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 public final class TaskList implements Runnable {
     private static final String QUIT = "quit";
@@ -67,10 +67,59 @@ public final class TaskList implements Runnable {
             case "help":
                 help();
                 break;
+            case "deadline":
+                deadline(commandRest[1]);
+                break;
+            case "today":
+                today();
+                break;
             default:
                 error(command);
                 break;
         }
+    }
+
+    private void today() {
+        for (Map.Entry<String, List<Task>> project : tasks.entrySet()) {
+            for (Task task : project.getValue()) {
+                if (task.isDeadlineToday()) {
+                    out.printf( "DeadLine{" +
+                            "taskId='" + task.getId() + '\'' +
+                            ", deadLine='" + task.getDeadline() + '\'' +
+                            '}');
+                    out.println();
+                }
+
+            }
+        }
+    }
+
+    private void deadline(String rest) {
+        String[] deadlineRest = rest.split(" ", 2);
+        String idString = deadlineRest[0];
+        String date = deadlineRest[1];
+        int id = Integer.parseInt(idString);
+        Date deadLine;
+        DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
+        try {
+            deadLine = dateFormat.parse(date);
+        } catch (ParseException pEx) {
+            throw new IllegalArgumentException(
+                    String.format("%s is not a valid date", date),
+                    pEx);
+        }
+
+        for (Map.Entry<String, List<Task>> project : tasks.entrySet()) {
+            for (Task task : project.getValue()) {
+                if (task.getId() == id) {
+                    task.setDeadline(date);
+                    return;
+                }
+            }
+        }
+        out.printf("Could not find a task with an ID of %d.", id);
+        out.println();
+
     }
 
     private void show() {
@@ -105,7 +154,7 @@ public final class TaskList implements Runnable {
             out.println();
             return;
         }
-        projectTasks.add(new Task(nextId(), description, false));
+        projectTasks.add(new Task(nextId(), description, false, null));
     }
 
     private void check(String idString) {

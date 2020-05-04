@@ -10,4 +10,5 @@ public interface TaskListStorageInterface {
     public void uncheckTask(long id);
     public void deleteTask(long id);
     public void deleteProject(String name);
+    public void addDeadline(long id, String deadline);
 }

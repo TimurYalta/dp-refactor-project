@@ -75,6 +75,14 @@ public final class ApplicationTest {
         execute("add task training Outside-In TDD");
         execute("add task training Interaction-Driven Design");
 
+        execute("deadline 3 04.05.2020");
+        execute("deadline 6 04.05.2020");
+        execute("today");
+        readLines(
+                "DeadLine{taskId='3', deadLine='04.05.2020'}",
+                "DeadLine{taskId='6', deadLine='04.05.2020'}"
+        );
+
         execute("check 1");
         execute("check 3");
         execute("check 5");

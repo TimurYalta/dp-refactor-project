@@ -36,6 +36,13 @@ public class Project {
             }
         }
     }
+    public void setTaskDeadline(long id, String deadline) {
+        for (Task t : storage) {
+            if (t.getId() == id) {
+                t.setDeadline(deadline);
+            }
+        }
+    }
 
     public String getName() {
         return name;

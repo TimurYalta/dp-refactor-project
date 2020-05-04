@@ -48,6 +48,9 @@ public class TaskListContext {
         ShowAction show = new ShowAction("Show projects and tasks", "show");
         mainMenu.addAction(show);
 
+        TodayAction today = new TodayAction("Show all the tasks whose deadline is today.", "today");
+        mainMenu.addAction(today);
+
         AddProjectAction addProj = new AddProjectAction("Add project", "addP");
         mainMenu.addAction(addProj);
 
@@ -60,6 +63,9 @@ public class TaskListContext {
         DeleteTaskAction deleteTask = new DeleteTaskAction("Delete task", "delete");
         mainMenu.addAction(deleteTask);
 
+        AddDeadlineAction addDeadline = new AddDeadlineAction("Add deadline", "deadline");
+        mainMenu.addAction(addDeadline);
+
         CheckTaskAction checkTask = new CheckTaskAction("Check task by id", "check");
         mainMenu.addAction(checkTask);
 
@@ -70,7 +76,7 @@ public class TaskListContext {
     }
 
     public Task generateTask(String description){
-        return new Task(++counter,description, false);
+        return new Task(++counter,description, false, null);
     }
 
     private TaskListContext() {
