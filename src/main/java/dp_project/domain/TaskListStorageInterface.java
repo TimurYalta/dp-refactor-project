@@ -8,4 +8,6 @@ public interface TaskListStorageInterface {
     public void addTask(String projName, Task task);
     public void checkTask(long id);
     public void uncheckTask(long id);
+    public void deleteTask(long id);
+    public void deleteProject(String name);
 }

@@ -43,4 +43,16 @@ public class TaskListInMemoryStorage implements TaskListStorageInterface {
             p.unCheckTask(id);
         }
     }
+
+    @Override
+    public void deleteTask(long id) {
+        for(Project p:projects){
+            p.deleteTask(id);
+        }
+    }
+
+    @Override
+    public void deleteProject(String name) {
+        projects.removeIf(p -> p.getName().equals(name));
+    }
 }

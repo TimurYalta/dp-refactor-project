@@ -51,8 +51,14 @@ public class TaskListContext {
         AddProjectAction addProj = new AddProjectAction("Add project", "addP");
         mainMenu.addAction(addProj);
 
+        DeleteProjectAction delProj = new DeleteProjectAction("Delete project", "deleteP");
+        mainMenu.addAction(delProj);
+
         AddTaskAction addTask = new AddTaskAction("Add task", "addT");
         mainMenu.addAction(addTask);
+
+        DeleteTaskAction deleteTask = new DeleteTaskAction("Delete task", "delete");
+        mainMenu.addAction(deleteTask);
 
         CheckTaskAction checkTask = new CheckTaskAction("Check task by id", "check");
         mainMenu.addAction(checkTask);

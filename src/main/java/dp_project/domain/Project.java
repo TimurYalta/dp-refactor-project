@@ -25,6 +25,9 @@ public class Project {
             }
         }
     }
+    public void deleteTask(long id){
+        storage.removeIf(t -> t.getId() == id);
+    }
 
     public void unCheckTask(long id) {
         for (Task t : storage) {
