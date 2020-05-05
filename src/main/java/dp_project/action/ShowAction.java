@@ -36,7 +36,11 @@ public class ShowAction extends TaskListAction {
                 else{
                     mark = " ";
                 }
-                stream.println("    ["+mark+"]  "+t.getId()+" :"+t.getDescription());
+                String deadline="";
+                if(t.getDeadline() != null){
+                    deadline = " - "+t.getDeadline();
+                }
+                stream.println("    ["+mark+"]  "+t.getId()+" :"+t.getDescription()+deadline);
             }
         }
     }
