@@ -27,9 +27,7 @@ public class TodayAction extends TaskListAction {
         boolean atLeastOne= false;
         for (Project p : store) {
             stream.println("Project: " + p.getName());
-//            if (p.getTasks().isEmpty()) {
-//                stream.println("    <empty>");
-//            }
+
             boolean atLeastOneinProj = false;
             for (Task t : p.getTasks()) {
                 if (t.isDeadlineToday()) {

@@ -44,7 +44,7 @@ public class TaskListContext {
 
     public static Action<TaskListContext> getMenu() {
         TaskListActionList mainMenu = new TaskListActionList("Show available actions", "help", "Main");
-        mainMenu.addAction(mainMenu);
+
         ShowAction show = new ShowAction("Show projects and tasks", "show");
         mainMenu.addAction(show);
 

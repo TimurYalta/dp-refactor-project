@@ -1,8 +1,8 @@
 package dp_project.action;
 
 public interface Action<E> {
-    public String actionMessage();
-    public String actionCode();
-    public String[] getArgs();
-    public void execute(E ac) throws Exception;
+    String actionMessage();
+    String actionCode();
+    String[] getArgs();
+    void execute(E ac) throws Exception;
 }

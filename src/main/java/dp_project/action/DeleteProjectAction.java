@@ -10,7 +10,7 @@ public class DeleteProjectAction extends TaskListAction{
     }
 
     @Override
-    public void execute(TaskListContext ac) throws Exception {
+    public void execute(TaskListContext ac) {
         String name = ac.getScanner().next();
         ac.getStorage().deleteProject(name);
     }

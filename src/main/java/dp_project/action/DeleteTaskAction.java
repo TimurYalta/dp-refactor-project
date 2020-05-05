@@ -10,7 +10,7 @@ public class DeleteTaskAction extends TaskListAction {
     }
 
     @Override
-    public void execute(TaskListContext ac) throws Exception {
+    public void execute(TaskListContext ac) {
         long id = ac.getScanner().nextLong();
         ac.getStorage().deleteTask(id);
     }
